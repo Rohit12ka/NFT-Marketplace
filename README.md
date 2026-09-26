@@ -1,103 +1,131 @@
-# NFT Marketplace
+# 🖼️ NFT Marketplace DApp
 
-A decentralized NFT Marketplace where users can connect their crypto wallet, mint NFTs, list them for sale, buy listed NFTs, and manage their digital assets securely using blockchain technology.
+A decentralized NFT Marketplace built with React, Solidity, Hardhat, ethers.js, MetaMask, and IPFS.
 
-## Live Demo
+This platform allows users to create, mint, list, buy, and manage NFTs directly on the blockchain without depending on a centralized marketplace.
 
-- Live Website: [Add your deployed link here]
-- Smart Contract: [Add your contract explorer link here]
-- Demo Video: [Add YouTube/Loom link here]
+---
 
-## Project Overview
+## 🌐 Live Application
 
-This project is a Web3-based NFT marketplace built with Solidity smart contracts and a modern React frontend. It allows creators to tokenize their digital artwork as NFTs and enables users to buy and sell NFTs directly through the blockchain.
+🔗 **Live Demo:** [Add your live website URL]
 
-All transactions are recorded on-chain, which provides transparency, security, and decentralized ownership.
+🔗 **Frontend Repository:** [Add frontend repository URL]
 
-## Features
+🔗 **Smart Contract Repository:** [Add smart contract repository URL]
 
-- Connect wallet using MetaMask
-- Mint NFTs with image and metadata
-- Upload NFT metadata to IPFS
-- List NFTs for sale
-- Buy NFTs using cryptocurrency
-- View available marketplace NFTs
-- View NFTs owned by the connected wallet
-- View NFTs created by the connected wallet
-- Transfer NFT ownership after purchase
-- Decentralized smart contract-based transactions
-- Responsive user interface
+🔗 **Contract on Explorer:** [Add Etherscan/Polygonscan URL]
 
-## Tech Stack
+---
 
-### Frontend
+## 📌 About The Project
 
-- React.js
-- Vite
-- JavaScript
-- Tailwind CSS / CSS
-- ethers.js
-- MetaMask
+Traditional digital marketplaces require centralized platforms to manage NFT ownership, transactions, and user data.
 
-### Blockchain
+This project solves that problem by using blockchain technology. NFT ownership and marketplace transactions are handled through Solidity smart contracts, while NFT images and metadata are stored on IPFS.
 
-- Solidity
-- Hardhat
-- OpenZeppelin Contracts
-- ethers.js
-- Ethereum / Sepolia Testnet / Polygon Amoy Testnet
+The application provides a transparent and decentralized way for creators and collectors to interact with digital assets.
 
-### Storage
+---
 
-- IPFS
-- Pinata / NFT.Storage
+## ✨ Features
 
-## Architecture
+### Wallet Features
 
-```text
-User
-  |
-  v
-React Frontend
-  |
-  v
-MetaMask Wallet
-  |
-  v
-Smart Contract (Solidity)
-  |
-  v
-Blockchain Network
-  |
-  v
-IPFS Storage for NFT Image and Metadata
+- Connect wallet with MetaMask.
+- Detect connected wallet address.
+- Detect incorrect blockchain network.
+- Request network switching when required.
+- Display wallet balance.
+
+### NFT Features
+
+- Create and mint NFTs.
+- Upload NFT images to IPFS.
+- Store NFT metadata on IPFS.
+- Display NFT name, description, image, creator, and price.
+- View NFT details.
+- View NFTs owned by the connected wallet.
+- View NFTs created by the connected wallet.
+
+### Marketplace Features
+
+- List NFT for sale.
+- Buy listed NFTs.
+- Cancel NFT listing.
+- Update NFT price.
+- Transfer NFT ownership after purchase.
+- Receive payment through blockchain transactions.
+- Display marketplace transaction status.
+
+### User Experience
+
+- Responsive design.
+- Modern and clean interface.
+- Loading state during blockchain transactions.
+- Error handling for rejected transactions.
+- Transaction success notifications.
+- Mobile-friendly NFT cards.
+- Empty-state screens for better usability.
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Technology |
+|---|---|
+| Frontend | React.js |
+| Build Tool | Vite |
+| Styling | Tailwind CSS |
+| Smart Contracts | Solidity |
+| Development Framework | Hardhat |
+| Blockchain Library | ethers.js |
+| Wallet | MetaMask |
+| NFT Standard | ERC-721 |
+| File Storage | IPFS |
+| IPFS Provider | Pinata |
+| Network | Sepolia Testnet |
+| Version Control | Git and GitHub |
+
+---
+
+## 🏗️ Application Architecture
+
+```mermaid
+flowchart TD
+    A[User] --> B[React Frontend]
+    B --> C[MetaMask Wallet]
+    B --> D[IPFS]
+    C --> E[Marketplace Smart Contract]
+    E --> F[Blockchain Network]
+    D --> G[NFT Image and Metadata]
 ```
 
-## How It Works
+### Transaction Flow
 
-1. The user connects their MetaMask wallet.
-2. The creator uploads an image and NFT details.
-3. The image and metadata are stored on IPFS.
-4. The smart contract mints an NFT using the metadata URI.
-5. The owner can list the NFT on the marketplace with a price.
-6. Another user can purchase the NFT using cryptocurrency.
-7. The smart contract transfers NFT ownership to the buyer.
-8. The seller receives the payment after the transaction is completed.
+```text
+User connects MetaMask
+        ↓
+User uploads NFT image
+        ↓
+Image is stored on IPFS
+        ↓
+NFT metadata is created
+        ↓
+Metadata is stored on IPFS
+        ↓
+Smart contract mints NFT
+        ↓
+NFT can be listed for sale
+        ↓
+Buyer purchases NFT
+        ↓
+Ownership is transferred on-chain
+```
 
-## Smart Contract Functions
+---
 
-| Function | Description |
-|---|---|
-| `mintToken()` | Creates a new NFT and assigns ownership to the creator |
-| `listItem()` | Lists an NFT for sale on the marketplace |
-| `buyItem()` | Allows a user to purchase a listed NFT |
-| `cancelListing()` | Removes an NFT from the marketplace listing |
-| `updateListing()` | Updates the price of a listed NFT |
-| `getListedItems()` | Fetches all NFTs currently listed for sale |
-| `getMyNFTs()` | Fetches NFTs owned by the connected user |
-| `getMyListedNFTs()` | Fetches NFTs listed by the connected user |
-
-## Project Structure
+## 📂 Project Structure
 
 ```text
 nft-marketplace/
@@ -105,12 +133,28 @@ nft-marketplace/
 ├── client/
 │   ├── public/
 │   ├── src/
+│   │   ├── assets/
 │   │   ├── components/
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── NFTCard.jsx
+│   │   │   ├── Loader.jsx
+│   │   │   └── WalletButton.jsx
 │   │   ├── pages/
+│   │   │   ├── Home.jsx
+│   │   │   ├── CreateNFT.jsx
+│   │   │   ├── MyNFTs.jsx
+│   │   │   ├── MyListings.jsx
+│   │   │   └── NFTDetails.jsx
 │   │   ├── contracts/
+│   │   │   ├── NFT.json
+│   │   │   └── Marketplace.json
 │   │   ├── utils/
+│   │   │   ├── contract.js
+│   │   │   ├── ipfs.js
+│   │   │   └── formatters.js
 │   │   ├── App.jsx
-│   │   └── main.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
 │   ├── package.json
 │   └── vite.config.js
 │
@@ -122,228 +166,45 @@ nft-marketplace/
 │   └── deploy.js
 │
 ├── test/
+│   ├── NFT.test.js
 │   └── Marketplace.test.js
+│
+├── deployments/
+│   └── addresses.json
 │
 ├── hardhat.config.js
 ├── package.json
+├── .env.example
+├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
-## Prerequisites
-
-Before running this project, make sure you have installed:
-
-- Node.js version 18 or above
-- npm or yarn
-- MetaMask browser extension
-- Git
-- A wallet with testnet ETH
-- Pinata or NFT.Storage account for IPFS storage
-
-## Installation
-
-### 1. Clone the repository
-
-```bash
-git clone [https://github.com/your-username/nft-marketplace.git](https://github.com/your-username/nft-marketplace.git)
-```
-
-### 2. Move into the project folder
-
-```bash
-cd nft-marketplace
-```
-
-### 3. Install blockchain dependencies
-
-```bash
-npm install
-```
-
-### 4. Install frontend dependencies
-
-```bash
-cd client
-npm install
-```
-
-## Environment Variables
-
-Create a `.env` file in the root folder and add the following variables:
-
-```env
-PRIVATE_KEY=your_wallet_private_key
-SEPOLIA_RPC_URL=your_rpc_url
-ETHERSCAN_API_KEY=your_etherscan_api_key
-PINATA_API_KEY=your_pinata_api_key
-PINATA_SECRET_API_KEY=your_pinata_secret_key
-```
-
-For the frontend, create a `.env` file inside the `client` folder:
-
-```env
-VITE_NFT_CONTRACT_ADDRESS=your_nft_contract_address
-VITE_MARKETPLACE_CONTRACT_ADDRESS=your_marketplace_contract_address
-VITE_PINATA_JWT=your_pinata_jwt_token
-```
-
-> Never upload your `.env` file or private key to GitHub.
-
-## Compile Smart Contracts
-
-```bash
-npx hardhat compile
-```
-
-## Run Tests
-
-```bash
-npx hardhat test
-```
-
-## Deploy Smart Contracts
-
-### Deploy on local Hardhat network
-
-Start the local blockchain:
-
-```bash
-npx hardhat node
-```
-
-In a new terminal, deploy contracts:
-
-```bash
-npx hardhat run scripts/deploy.js --network localhost
-```
-
-### Deploy on Sepolia testnet
-
-```bash
-npx hardhat run scripts/deploy.js --network sepolia
-```
-
-After deployment, copy the deployed contract addresses and update them in the frontend `.env` file.
-
-## Run Frontend
-
-Move to the frontend folder:
-
-```bash
-cd client
-```
-
-Start the development server:
-
-```bash
-npm run dev
-```
-
-Open the provided local URL in your browser, usually:
-
-```text
-http://localhost:5173
-```
-
-## Screenshots
-
-Add your project screenshots here.
-
-```md
-
-
-
-
-```
-
-## Challenges Faced
-
-- Connecting the React frontend with Solidity smart contracts
-- Handling MetaMask wallet connection and network switching
-- Uploading NFT images and metadata to IPFS
-- Managing smart contract transaction states
-- Converting ETH values correctly using `ethers.js`
-- Updating the frontend after blockchain transactions
-- Handling errors when users reject MetaMask transactions
-
-## Future Improvements
-
-- Add auction-based NFT bidding
-- Add royalty support for NFT creators
-- Add multiple blockchain network support
-- Add user profiles and creator pages
-- Add NFT categories and search filters
-- Add dark mode
-- Add transaction history
-- Add support for ERC-1155 NFTs
-- Add lazy minting functionality
-- Add backend analytics dashboard
-- Add AI-generated NFT metadata or artwork features
-
-## Learning Outcomes
-
-Through this project, I learned:
-
-- Solidity smart contract development
-- ERC-721 NFT standard
-- Smart contract deployment with Hardhat
-- Integration of React with blockchain
-- Using ethers.js for Web3 interactions
-- MetaMask wallet integration
-- IPFS-based decentralized file storage
-- Managing blockchain transactions in frontend applications
-- Writing and testing smart contracts
-
-## Security Note
-
-This project is built for learning and portfolio purposes. Before deploying to a mainnet with real funds:
-
-- Perform a complete smart contract security audit
-- Protect private keys and environment variables
-- Add access-control checks where required
-- Test all contract functions carefully
-- Consider reentrancy protection for payment-related functions
-- Validate all user inputs
-- Use audited OpenZeppelin smart contract libraries
-
-## Contributing
-
-Contributions, suggestions, and improvements are welcome.
-
-1. Fork this repository
-2. Create a new branch
-
-```bash
-git checkout -b feature/your-feature-name
-```
-
-3. Make your changes
-4. Commit your changes
-
-```bash
-git commit -m "Add your feature"
-```
-
-5. Push the branch
-
-```bash
-git push origin feature/your-feature-name
-```
-
-6. Open a Pull Request
-
-## Author
-
-**Rohit Kumar**
-
-- GitHub: [Add your GitHub profile link]
-- LinkedIn: [Add your LinkedIn profile link]
-- Portfolio: [Add your portfolio link]
-
-## License
-
-This project is licensed under the MIT License.
-
 ---
 
-If you found this project useful, please consider giving it a star on GitHub.
+## 🔐 Smart Contracts
+
+### NFT Contract
+
+The NFT contract follows the ERC-721 standard and is responsible for creating and managing NFT ownership.
+
+Main responsibilities:
+
+- Mint new NFTs.
+- Store token URI.
+- Track NFT ownership.
+- Transfer NFT ownership.
+- Approve marketplace contract.
+
+### Marketplace Contract
+
+The marketplace contract handles NFT listings and purchases.
+
+Main responsibilities:
+
+- Create NFT listings.
+- Store NFT price.
+- Validate listing ownership.
+- Process NFT purchases.
+- Transfer NFT ownership.
+- Send payment
